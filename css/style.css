@@ -64,7 +64,7 @@ body {
 }
 
 .tecla img {
-    width: 2em;
+    width: 1.5em;
 }
 
 .tecla:hover {
@@ -110,20 +110,5 @@ body {
 
     .tecla {
         font-size: 1.5em;
-    }
-}
-
-@media screen and (min-width: 48em) {
-    .display {
-        font-size: 2em;
-    }
-
-    .teclas {
-        grid-template-columns: repeat(4, 3.8em);
-        grid-template-rows: repeat(5, 3.8em);
-    }
-
-    .tecla {
-        font-size: 2em;
     }
 }
