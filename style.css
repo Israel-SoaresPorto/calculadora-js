@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --botão-outline-padrao: 0.2em solid lightgray;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}    
+
+.calculadora {
+    background-color: rgb(95, 90, 90);
+    padding: 1.5em;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+.nome {
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.display {
+    background-color: white;
+    padding: 0.5rem;
+    font-size: 1em;
+    text-align: right;
+    border-radius: 0.5em;
+    flex-grow: 1;
+}
+
+.teclas {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 3em);
+    gap: 1em;
+}
+
+.tecla {
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 0.9rem;
+    border: none;
+    outline: var(--botão-outline-padrao);
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.tecla:hover {
+    background-color: rgb(211, 207, 207);
+}
+
+.limpar {
+    background-color: red;
+    outline: 0.2em solid lightcoral;
+}
+
+.limpar:hover {
+    background-color: color-mix(in srgb, red 50%, white)
+}
+
+.calcular {
+    background-color: rgb(95, 255, 47);
+    outline: 0.2em solid lightgreen;
+}
+
+.calcular:hover {
+    background-color: color-mix(in srgb, rgb(95, 255, 47) 50%, white);
+}
+
+.operacao, .parentese {
+    background-color: lightblue;
+    outline: 0.2em solid lightcyan;
+}
+
+.operacao:hover , .parentese:hover {
+    background-color: color-mix(in srgb, lightblue 50%, white);
+}
+
+@media screen and (min-width: 20em) {
+    .display {
+        font-size: 1.2em;
+    }
+
+    .teclas {
+        grid-template-columns: repeat(4, 3.5em);
+    }
+
+    .tecla {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .display {
+        font-size: 1.5em;
+    }
+
+    .teclas {
+        grid-template-columns: repeat(4, 3.8em);
+    }
+
+    .tecla {
+        font-size: 1.3em;
+    }
+}
