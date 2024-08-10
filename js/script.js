@@ -21,7 +21,7 @@ function formatarSeparador(operacao) {
 
 function formatarOperacao(resultado) {
   let valores = resultado.split(/(\+|\-|\×|\÷|\√|\π|\^)/);
-  console.log(valores);
+  
   for (let i = 0; i < valores.length; i++) {
     index = valores.indexOf(valores[i]);
 
@@ -46,7 +46,6 @@ function formatarOperacao(resultado) {
     }
   }
 
-  console.log(valores);
   return valores.join("");
 }
 
@@ -94,9 +93,10 @@ teclasOperacoes.forEach((operacao) => {
       return;
     }
 
-    let regex = /[+\-×÷√π%^]$/g;
+    let temOutroOperador = /[+\-×÷√π%^]$/g.test(display.textContent);
+    let temDecimal = display.textContent.slice(-1) === ',';
 
-    if (regex.test(display.textContent)) {
+    if (temOutroOperador || temDecimal) {
       return;
     }
 
@@ -106,6 +106,12 @@ teclasOperacoes.forEach((operacao) => {
 
 teclasParenteses.forEach((parentese) => {
   parentese.addEventListener("click", (event) => {
+    let temDecimal = display.textContent.slice(-1) === ',';
+
+    if(temDecimal) {
+      return;
+    }
+
     inserirNoDisplay(event.target);
   });
 });
@@ -132,7 +138,6 @@ calcular.addEventListener("click", () => {
   try {
     let operacao = formatarSeparador(display.textContent);
     operacao = formatarOperacao(operacao);
-    console.log(operacao);
     let resultado = eval(operacao);
     display.textContent = resultado.toLocaleString("pt-BR");
   } catch (error) {
